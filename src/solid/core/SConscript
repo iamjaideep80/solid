@@ -1,0 +1,21 @@
+
+Import('env')
+
+lib_src = [
+			'Vector3d.cpp',
+			'Matrix3d.cpp',
+			'Quaternion.cpp',
+			'AABB.cpp',
+			'OBB.cpp',
+			'InitialState.cpp',
+			'RigidBody.cpp',
+			'SimData.cpp',
+			'Range.cpp'
+			]
+lib_target = 'core'
+
+#env.Append(CPPPATH = ['/opt/hfs12.5.469/toolkit/include/','/home/jaideep/CGAL-4.3/include'])
+env.Append(CCFLAGS='-fPIC')
+env.Append(CCFLAGS='-DSIZEOF_VOID_P=8')
+
+lib = env.StaticLibrary(source = lib_src , target = lib_target)

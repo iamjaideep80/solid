@@ -1,0 +1,11 @@
+
+Import('env')
+
+lib_src = ['MeshVertex.cpp','MeshHalfEdge.cpp','MeshFace.cpp','MeshEdge.cpp','HalfEdgeMesh.cpp']
+lib_target = 'geometry'
+
+#env.Append(CPPPATH = ['/opt/hfs12.5.469/toolkit/include/','/home/jaideep/CGAL-4.3/include'])
+env.Append(CCFLAGS='-fPIC')
+env.Append(CCFLAGS='-DSIZEOF_VOID_P=8')
+
+lib = env.StaticLibrary(source = lib_src , target = lib_target)

@@ -1,0 +1,19 @@
+
+
+Import('env')
+
+lib_src = ['BlindDataManager.cpp','AttribManager.cpp']
+lib_target = 'houdini_utils'
+
+#env.Append(CPPPATH = ['/opt/hfs12.5.469/toolkit/include/'])
+env.Append(CPPPATH = ['/opt/hfs13.0.582/toolkit/include/'])
+env.Append(CCFLAGS='-fPIC')
+env.Append(CCFLAGS='-DSIZEOF_VOID_P=8')
+
+#env.Append(CCFLAGS=['-DVERSION=\"12.5.469\"','-D_GNU_SOURCE','-DLINUX','-DAMD64','-m64','-fPIC','-DSIZEOF_VOID_P=8','-DFBX_ENABLED=1','-DOPENCL_ENABLED=1','-DOPENVDB_ENABLED=1','-DSESI_LITTLE_ENDIAN','-DENABLE_THREADS'])
+env.Append(CCFLAGS=['-DVERSION=\"13.0.582\"','-D_GNU_SOURCE','-DLINUX','-DAMD64','-m64','-fPIC','-DSIZEOF_VOID_P=8','-DFBX_ENABLED=1','-DOPENCL_ENABLED=1','-DOPENVDB_ENABLED=1','-DSESI_LITTLE_ENDIAN','-DENABLE_THREADS'])
+env.Append(CCFLAGS=['-DUSE_PTHREADS','-D_REENTRANT','-D_FILE_OFFSET_BITS=64','-c','-DGCC4','-DGCC3','-Wno-deprecated','-I/opt/houdini/toolkit/include','-Wall','-W','-Wno-parentheses'])
+env.Append(CCFLAGS=['-Wno-sign-compare','-Wno-reorder','-Wno-uninitialized','-Wunused','-Wno-unused-parameter','-DUT_ASSERT_LEVEL=2','-fno-strict-aliasing','-DMAKING_DSO'])
+env.Append(CCFLAGS=['-Wno-attributes'])
+
+lib = env.StaticLibrary(source = lib_src , target = lib_target)

@@ -1,0 +1,10 @@
+Import('env')
+
+houdini_utils_env = env.Clone()
+houdini_adapter_env = env.Clone()
+houdini_plugins_env = env.Clone()
+
+
+SConscript('utils/SConscript', exports={'env':houdini_utils_env})
+SConscript('adapter/SConscript', exports={'env':houdini_adapter_env})
+SConscript('plugins/SConscript', exports={'env':houdini_plugins_env})

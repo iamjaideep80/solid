@@ -1,0 +1,13 @@
+Import('env')
+
+core_env = env.Clone()
+collision_env = env.Clone()
+#geometry_env = env.Clone()
+solver_env = env.Clone()
+unittest_env = env.Clone()
+
+SConscript('core/SConscript', exports={'env':core_env})
+SConscript('collision/SConscript', exports={'env':collision_env})
+#SConscript('geometry/SConscript', exports={'env':geometry_env})
+SConscript('solver/SConscript', exports={'env':solver_env})
+SConscript('unittest/SConscript', exports={'env':unittest_env})

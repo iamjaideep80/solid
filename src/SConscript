@@ -1,0 +1,7 @@
+Import('env')
+
+solid_env = env.Clone()
+SConscript('solid/SConscript', exports={'env':solid_env})
+
+houdini_env = env.Clone()
+SConscript('houdini/SConscript', exports={'env':houdini_env})

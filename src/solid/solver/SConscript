@@ -1,0 +1,11 @@
+
+Import('env')
+
+lib_src = ['SolidSystem.cpp','State.cpp','Differential.cpp','OdeSolver.cpp']
+lib_target = 'solver'
+
+#env.Append(CPPPATH = ['/opt/hfs12.5.469/toolkit/include/','/home/jaideep/CGAL-4.3/include'])
+env.Append(CCFLAGS='-fPIC')
+env.Append(CCFLAGS='-DSIZEOF_VOID_P=8')
+
+lib = env.StaticLibrary(source = lib_src , target = lib_target)

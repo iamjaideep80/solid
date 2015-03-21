@@ -1,0 +1,22 @@
+
+
+Import('env')
+
+srcList = [
+			'TestVector3d.cpp',
+			'TestMatrix3d.cpp',
+			'TestOdeSolver.cpp',
+			'TestVectorProduct.cpp',
+			'TestQuat.cpp',
+			'TestPolyhedron.cpp',
+			'TestPolyhedron_b.cpp',
+			'TestPolyhedronConverter.cpp'
+			]
+
+env.Append(LIBPATH = ['../core'])
+env.Append(LIBS = ['core'])
+
+
+for src in srcList:
+	target = src.rstrip('.cpp')
+	lib = env.Program(source = src , target = target)
